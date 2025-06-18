@@ -141,7 +141,7 @@ class ConfigFlow(ConfigFlow, domain=DOMAIN):
         self._entry = discovery_info["entry"]
         self._cp_id = discovery_info["cp_id"]
         self._data = {**self._entry.data}
-        self._data = deepcopy(self._data)
+        self._data = deepcopy(self._data) # TM not present in 8.3 ...only change with 8.4
 
         await self.async_set_unique_id(self._cp_id)
         # Abort the flow if a config entry with the same unique ID exists
