@@ -218,8 +218,13 @@ class CentralSystem:
                 "Websocket Subprotocol not provided by charger: default to ocpp1.6"
             )
 
-        _LOGGER.info(f"Charger websocket path={websocket.request.path}")
-        cp_id = websocket.request.path.strip("/")
+        if isinstance(websocket, ServerConnection):
+            _LOGGER.info(f"Charger websocket path={websocket.request.path}")
+            cp_id = websocket.request.path.strip("/")
+        else:
+            _LOGGER.info(f"Charger websocket path={websocket.path}")
+            cp_id = websocket.path.strip("/")
+
         cp_id = cp_id[cp_id.rfind("/") + 1 :]
         if cp_id not in self.charge_points:
             try:
