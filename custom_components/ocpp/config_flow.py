@@ -1,7 +1,6 @@
 """Adds config flow for ocpp."""
 
 from typing import Any
-from copy import deepcopy
 from homeassistant.config_entries import (
     ConfigEntry,
     ConfigFlow,
