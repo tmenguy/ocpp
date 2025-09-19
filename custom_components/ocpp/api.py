@@ -214,8 +214,6 @@ class CentralSystem:
         if not subprotocols:
             return None
 
-        _LOGGER.warning(f"select_subprotocol: arg: {subprotocols} self.subprotocols {self.subprotocols}")
-
         # Server and client both offer subprotocols. Look for a shared one.
         proposed_subprotocols = set(subprotocols)
         for subprotocol in proposed_subprotocols:
